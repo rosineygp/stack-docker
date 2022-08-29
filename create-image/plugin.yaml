@@ -15,25 +15,74 @@ technologies: # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/
 types:
   - app
 inputs:
-  - label: Base Image
+  # Docker
+  - label: Docker Base Image
     type: text
     name: base_image
     default: alpine
-  - label: Tag Image
+  - label: Docker Image Tag
     type: text
     name: tag_image
     default: latest
+  
+  # System Packages
+  - label: Install System Packages
+    type: bool
+    name: install_system_packages
+    default: true
   - label: Package Manager
     name: package_manager
     type: text
     items:
       - apk
       - apt-get
-      - rpm
-  - label: Package names, seprated by spaces
+      - yum
+    condition:
+      variable: install_system_packages
+      operator: ==
+      value: true
+  - label: Package Names (seprated by spaces)
     type: text
     name: packages
     default: curl
+    condition:
+      variable: install_system_packages
+      operator: ==
+      value: true
+    
+  # Language Packages
+  - label: Install Code Packages
+    type: bool
+    name: install_code_packages
+    default: false
+  - label: Code Package Manager
+    name: code_package_manager
+    type: text
+    items:
+      - pip
+      - npm
+    condition:
+      variable: install_code_packages
+      operator: ==
+      value: true
+  - label: Code Package Names (seprated by spaces)
+    type: text
+    name: code_packages
+    default: pyyaml
+    condition:
+      variable: install_code_packages
+      operator: ==
+      value: true
 
 computed-inputs:
-  folder_name: "{{ base_image | to_kebab }}-{{ packages.split(' ') | sort | join(' ') | to_kebab }}"
+  folder_name: >-
+    {{- base_image | to_kebab -}}
+
+    {%- if install_system_packages -%}
+    -{{- packages.split(' ') | sort | join(' ') | to_kebab -}}
+    {%- endif -%}
+
+    {%- if install_code_packages -%}
+    -{{- code_package_manager -}}-
+    {{- code_packages.split(' ') | sort | join(' ') | to_kebab -}}
+    {%- endif -%}
