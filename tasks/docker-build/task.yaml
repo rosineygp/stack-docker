@@ -31,6 +31,6 @@ command: |
     echo ""
     echo "***** DOCKER BUILD: ${BASE_NAME}/${PWD##*/} *****"
     docker build \
-      {% if not caching %} --force-rm --no-cache --pull {% endif %} \
+      {% if not caching %} --force-rm --no-cache --pull {% endif %}
       -t "${BASE_NAME}/${PWD##*/}:{{ tag_image }}" .
   done
