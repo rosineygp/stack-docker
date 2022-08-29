@@ -13,5 +13,5 @@ RUN yum install -y {{ packages }}
 RUN pip install {{ code_packages }}
 {% endif %}
 {% if code_package_manager == "npm" %}
-RUN npm install -g {{ packages }}
+RUN npm install -g {{ code_packages }}
 {% endif %}

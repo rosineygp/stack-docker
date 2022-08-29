@@ -76,7 +76,7 @@ inputs:
 
 computed-inputs:
   folder_name: >-
-    {{- base_image | to_kebab -}}
+    {{- base_image | to_kebab -}}-{{- tag_image | replace('.', '-') | to_kebab -}}
 
     {%- if install_system_packages -%}
     -{{- packages.split(' ') | sort | join(' ') | to_kebab -}}
