@@ -2,7 +2,7 @@ description: Generate docker images with custom packages
 name: stack-docker
 display-name: stack-docker
 picture: stack.png
-category: Backend
+category: backend
 compatibility:
   - linux
   - macos
