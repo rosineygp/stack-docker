@@ -2,12 +2,12 @@ description: Generate docker images with custom packages
 name: stack-docker
 display-name: stack-docker
 picture: stack.png
-category: backend # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
-compatibility: # Put a list of technologies compatible with the stack
-  - java
-  - spring
-technologies: # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#technologies 
-  - docker 
+category: Backend
+compatibility:
+  - linux
+  - macos
+technologies:
+  - Docker
 about: docs/about.md
 use-cases:
   - title: Use Case Title

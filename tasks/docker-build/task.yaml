@@ -1,0 +1,36 @@
+name: docker-build
+description: Build all images
+supported-os:
+- linux
+- mac
+inputs:
+  - label: Tag Image
+    type: text
+    name: tag_image
+    default: latest
+  - label: Use Cache
+    type: bool
+    name: caching
+    default: true
+requirements-check:
+  dependency-example:
+    check-command: docker --version
+    info: Please install docker before run this task!
+command: |
+  #!/bin/bash
+
+  set -e
+
+  BASE_FOLDER="$(pwd)"
+  BASE_NAME="${PWD##*/}"
+
+  PROJECTS="$(find ${BASE_FOLDER} -iname Dockerfile -exec dirname {} \;)"
+
+  for i in $PROJECTS; do
+    cd "$i"
+    echo ""
+    echo "***** DOCKER BUILD: ${BASE_NAME}/${PWD##*/} *****"
+    docker build \
+      {% if not caching %} --force-rm --no-cache --pull {% endif %} \
+      -t "${BASE_NAME}/${PWD##*/}:{{ tag_image }}" .
+  done
