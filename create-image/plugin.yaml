@@ -36,4 +36,4 @@ inputs:
     default: curl
 
 computed-inputs:
-  folder_name: "{{ base_image | to_kebab }}-{{ packages | to_kebab }}"
+  folder_name: "{{ base_image | to_kebab }}-{{ packages.split(' ') | sort | join(' ') | to_kebab }}"
