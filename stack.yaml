@@ -2,10 +2,9 @@ description: Generate docker images with custom packages
 name: stack-docker
 display-name: stack-docker
 picture: stack.png
-category: backend
-compatibility:
-  - linux
-  - macos
+category: SRE
+compatibility: # Put a list of technologies compatible with the stack
+  - Java
 technologies:
   - Docker
 about: docs/about.md

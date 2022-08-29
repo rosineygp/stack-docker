@@ -2,7 +2,7 @@ name: create-image
 description: Create custom docker image
 display-name: create-image
 picture: plugin.png
-category: backend # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
+category: SRE # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
 compatibility:
   - linux
   - macos
