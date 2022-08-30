@@ -9,6 +9,6 @@ technologies:
   - Docker
 about: docs/about.md
 use-cases:
-  - title: Use Case Title
-    content: docs/use-case.md
+  - title: Stack Docker
+    content: README.md
     stackfile: stackfiles/default.yaml
