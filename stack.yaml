@@ -7,8 +7,8 @@ compatibility: # Put a list of technologies compatible with the stack
   - Java
 technologies:
   - Docker
-about: docs/about.md
+about: README.md
 use-cases:
   - title: Stack Docker
-    content: README.md
+    content: docs/use-case.md
     stackfile: stackfiles/default.yaml
