@@ -1,0 +1,8 @@
+applied_templates:
+- inputs: {}
+  template_data_path: ''
+- inputs: {}
+  template_data_path: github-stack/gha-super-linter
+global_computed_inputs: {}
+global_inputs: {}
+stack_type: app
