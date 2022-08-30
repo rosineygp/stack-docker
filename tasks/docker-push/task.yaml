@@ -1,0 +1,27 @@
+name: docker-push
+description: Push all docker images
+supported-os:
+- linux
+- mac
+inputs:
+  - label: Tag Image
+    type: text
+    name: tag_image
+    default: latest
+requirements-check:
+  docker:
+    check-command: docker --version
+    info: Please install docker before run this task!
+command: |
+  #!/bin/bash
+
+  set -e
+
+  BASE_FOLDER="$(pwd)"
+  BASE_NAME="${PWD##*/}"
+
+  IMAGES="$(docker image ls | grep my-docker | awk '{ print $1 }')"
+
+  for i in $IMAGES; do
+    docker push $i
+  done
