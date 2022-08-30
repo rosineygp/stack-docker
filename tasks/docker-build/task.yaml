@@ -1,5 +1,5 @@
 name: docker-build
-description: Build all images
+description: Build all Dockerfiles
 supported-os:
 - linux
 - mac
@@ -13,7 +13,7 @@ inputs:
     name: caching
     default: true
 requirements-check:
-  dependency-example:
+  docker:
     check-command: docker --version
     info: Please install docker before run this task!
 command: |
