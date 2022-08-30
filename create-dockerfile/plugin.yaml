@@ -1,6 +1,6 @@
-name: create-image
-description: Create custom docker image
-display-name: create-image
+name: create-dockerfile
+description: Create custom Dockerfile
+display-name: create-dockerfile
 picture: plugin.png
 category: SRE # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
 compatibility:
