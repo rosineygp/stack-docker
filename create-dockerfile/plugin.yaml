@@ -4,8 +4,7 @@ display-name: create-dockerfile
 picture: plugin.png
 category: SRE # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
 compatibility:
-  - linux
-  - macos
+  - Java
 about: docs/about.md
 usage: docs/usage.md
 use-case: docs/use-case.md

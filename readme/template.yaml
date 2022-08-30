@@ -3,7 +3,6 @@ description: Just create initial README.md file
 types:
   - app-template
 compatibility:
-  - linux
-  - mac
+  - Java
 technologies:
   - Docker
