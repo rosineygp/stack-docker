@@ -1,1 +1,0 @@
-# About stack-docker stack
