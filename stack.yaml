@@ -3,8 +3,8 @@ name: stack-docker
 display-name: stack-docker
 picture: stack.png
 category: SRE
-compatibility: # Put a list of technologies compatible with the stack
-  - Java
+compatibility:
+  - Docker
 technologies:
   - Docker
 about: README.md
