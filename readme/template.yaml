@@ -1,8 +1,18 @@
-name: readme
-description: Just create initial README.md file
+name: init
+description: Just init a project, creating a README.md
 types:
   - app-template
 compatibility:
   - Docker
 technologies:
   - Docker
+inputs:
+  - label: project name
+    type: text
+    name: project_name
+    required: true
+  - label: Docker image Repository URL
+    type: text
+    name: docker_repository
+    default: docker.io
+    required: true
