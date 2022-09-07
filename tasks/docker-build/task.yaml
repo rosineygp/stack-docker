@@ -22,15 +22,14 @@ command: |
   set -e
 
   BASE_FOLDER="$(pwd)"
-  BASE_NAME="${PWD##*/}"
 
   PROJECTS="$(find ${BASE_FOLDER} -iname Dockerfile -exec dirname {} \;)"
 
   for i in $PROJECTS; do
     cd "$i"
     echo ""
-    echo "***** DOCKER BUILD: ${BASE_NAME}/${PWD##*/} *****"
+    echo "***** DOCKER BUILD: {{ docker_repository }}{{ project_name }}/${PWD##*/} *****"
     docker build \
       {% if not caching %} --force-rm --no-cache --pull {% endif %}
-      -t "${BASE_NAME}/${PWD##*/}:{{ tag_image }}" .
+      -t "{{ docker_repository }}/{{ project_name }}/${PWD##*/}:{{ tag_image }}" .
   done
