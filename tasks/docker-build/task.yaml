@@ -28,8 +28,8 @@ command: |
   for i in $PROJECTS; do
     cd "$i"
     echo ""
-    echo "***** DOCKER BUILD: {{ docker_repository }}{{ project_name }}/${PWD##*/} *****"
+    echo "***** DOCKER BUILD: {{ global_docker_repository }}{{ global_project_name }}/${PWD##*/} *****"
     docker build \
       {% if not caching %} --force-rm --no-cache --pull {% endif %}
-      -t "{{ docker_repository }}/{{ project_name }}/${PWD##*/}:{{ tag_image }}" .
+      -t "{{ global_docker_repository }}/{{ global_project_name }}/${PWD##*/}:{{ tag_image }}" .
   done

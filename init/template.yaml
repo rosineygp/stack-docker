@@ -16,3 +16,7 @@ inputs:
     name: docker_repository
     default: docker.io
     required: true
+
+global-computed-inputs:
+  global_project_name: "{{ project_name }}"
+  global_docker_repository: "{{ docker_repository }}"
