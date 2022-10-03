@@ -3,6 +3,7 @@ description: Build all Dockerfiles
 supported-os:
 - linux
 - mac
+- windows
 inputs:
   - label: Tag Image
     type: text

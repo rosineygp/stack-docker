@@ -3,6 +3,7 @@ description: Push all docker images
 supported-os:
 - linux
 - mac
+- windows
 inputs:
   - label: Tag Image
     type: text
